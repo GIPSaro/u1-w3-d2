@@ -10,7 +10,7 @@ const changeTitle = function () {
   const h1 = document.getElementsByTagName("h1")[0];
   h1.innerText = "NEW TITLE";
 };
-changeTitle();
+
 /* ESERCIZIO 2
         Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
      */
@@ -36,7 +36,6 @@ const changePcontent = function () {
     element.innerText = "NUOVO PARAGRAFO";
   });
 };
-changePcontent();
 /* ESERCIZIO 4
         Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
        */
@@ -111,7 +110,15 @@ const makeItClickable = function () {
        */
 console.log("ESERCIZIO 10");
 
-const revealFooterLink = function () {};
+const revealFooterLink = function () {
+  const footer = document.querySelector("footer");
+  footer.style.cursor = "pointer";
+  footer.onclick = function () {
+    const link = document.querySelector("footer a");
+    const url = link.getAttribute("href");
+    alert(url);
+  };
+};
 
 /* ESERCIZIO 11
         Crea una funzione che crei una tabella nell'elemento con id "tableArea". 
@@ -135,8 +142,21 @@ const hideAllImages = function () {};
 /* EXTRA ESERCIZIO 15
        Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
      */
+console.log("ESERCIZIO 15");
 
-const changeColorWithRandom = function () {};
+const changeColorWithRandom = function () {
+  const changeColor = document.getElementById("changeMyColor");
+  changeColor.onclick = function () {
+    const red = Math.round(Math.random() * 101);
+    const green = Math.round(Math.random() * 101);
+    const blue = Math.round(Math.random() * 101);
+
+    const randomColor = `rgb(${red},${green}, ${blue})`;
+    changeColor.style.userSelect = "none";
+    changeColor.style.cursor = "pointer";
+    changeColor.style.color = randomColor;
+  };
+};
 
 /* EXTRA ESERCIZIO 16
        Crea una funzione che elimini le vocali da ogni elemento testuale della pagina (puoi aiutarti con i nuovi metodi degli array di ES6)
