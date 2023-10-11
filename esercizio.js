@@ -147,17 +147,11 @@ console.log("ESERCIZIO 15");
 const changeColorWithRandom = function () {
   const changeColor = document.getElementById("changeMyColor");
   changeColor.onclick = function () {
-    const red = Math.round(Math.random() * 101);
-    const green = Math.round(Math.random() * 101);
-    const blue = Math.round(Math.random() * 101);
-
-    const randomColor = `rgb(${red},${green}, ${blue})`;
-    changeColor.style.userSelect = "none";
-    changeColor.style.cursor = "pointer";
-    changeColor.style.color = randomColor;
+    let coloreCasuale = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    changeColor.style.color = coloreCasuale;
   };
 };
-
+changeColorWithRandom();
 /* EXTRA ESERCIZIO 16
        Crea una funzione che elimini le vocali da ogni elemento testuale della pagina (puoi aiutarti con i nuovi metodi degli array di ES6)
      */
